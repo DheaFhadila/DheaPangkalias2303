@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penerima Angka Ilmiah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #a0caf6;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            border: 1px solid rgb(255, 255, 255);
+        }
+        nav a {
+            padding: 10px 20px;
+            border-right: 1px solid rgb(255, 255, 255);
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+        nav a:last-child {
+            border-right: none;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid rgb(255, 255, 255);
+            text-align: center;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(4, 48, 72);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: rgb(255, 255, 255);
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">File</a>
+        <a href="#">Edit</a>
+        <a href="#">Run</a>
+        <a href="#">About us</a>
+    </nav>
+    <div class="container">
+        <h2>Input string:</h2>
+        <input type="text" id="inputNumber" placeholder="1.23e+3">
+        <br>
+        <button onclick="validateNumber()">Run</button>
+        <h2>Message:</h2>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function validateNumber() {
+            const input = document.getElementById("inputNumber").value.trim();
+            const regex = /^[+-]?\d+(\.\d+)?(e[+-]?\d+)?$/i;
+            const message = document.getElementById("message");
+            
+            if (regex.test(input)) {
+                message.textContent = "Yes, it is a number";
+                message.style.color = "green";
+            } else {
+                message.textContent = "No, it is not a number";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
